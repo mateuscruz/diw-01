@@ -6,7 +6,6 @@ const LANG                 = "pt-BR";
 const MOVIE_BASE_URL       = "https://www.themoviedb.org/movie/";
 const DEFAULT_WIDTH        = "w342";
 
-
 const buildPosterPath = (path, width) => `${IMAGE_URL}/${width || DEFAULT_WIDTH}/${path}`;
 const buildCarousel   = (results) => {
   const indicators = buildCarouselIndicators(results);
