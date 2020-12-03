@@ -1,11 +1,13 @@
 const THE_MOVIE_DB_API_KEY = "1a99a0be7afc4ed774609bcb8d251341";
 const API_URL              = "https://api.themoviedb.org/3";
-const IMAGE_URL            = "http://image.tmdb.org/t/p/w342";
+const IMAGE_URL            = "http://image.tmdb.org/t/p/";
 const REGION               = "BR"
 const LANG                 = "pt-BR";
 const MOVIE_BASE_URL       = "https://www.themoviedb.org/movie/";
+const DEFAULT_WIDTH        = "w342";
 
-const buildPosterPath = (path) => `${IMAGE_URL}/${path}`;
+
+const buildPosterPath = (path, width) => `${IMAGE_URL}/${width || DEFAULT_WIDTH}/${path}`;
 const buildCarousel   = (results) => {
   const indicators = buildCarouselIndicators(results);
   let items        = '';
@@ -135,6 +137,62 @@ const fetchPopularMovies = () => {
   );
 }
 
+const buildSearchItem = (result) => {
+  const title = result.title;
+  const width = 'w92';
+  const body = `
+    <li class="media">
+      <img src="${buildPosterPath(result.poster_path, width)}" class="mr-3" alt="${title}">
+      <div class="media-body">
+        <h5 class="mt-0 mb-1">${title}</h5>
+        <p>${result.overview}</p>
+        <a href="${MOVIE_BASE_URL}/${result.id}?language=${LANG}">See more</a>
+      </div>
+    </li>
+  `;
+
+  return body;
+};
+
+const buildSearchResults = (results) => {
+  let searchItems = "";
+
+  for(let i = 0; i < results.length; i++) {
+    searchItems += `<div class="col-sm-12 col-lg-6">${buildSearchItem(results[i])}</div>`;
+  }
+
+  const html = `<ul class="list-unstyled">${searchItems}</ul>`;
+
+  $('#resultados-pesquisa').html(html);
+}
+
+const searchMovie = (query) => {
+  const endpoint = `${API_URL}/search/movie`;
+
+  $.ajax(
+    endpoint,
+    {
+      data: {
+        api_key: THE_MOVIE_DB_API_KEY,
+        language: LANG,
+        region: REGION,
+        query: query
+      },
+      success: (data) => buildSearchResults(data.results),
+      error: buildCarouselErrorPage
+    }
+  );
+}
+
 $(document).ready(() => {
   fetchPopularMovies();
+  $('#search-button').click(() => {
+    const input = $('#search-input');
+    const inputVal = input.val();
+    if (inputVal === undefined || inputVal === '') {
+      return;
+    }
+
+    searchMovie(inputVal);
+  });
 });

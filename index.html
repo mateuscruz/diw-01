@@ -22,23 +22,22 @@
             <li class="nav-item">
               <a class="nav-link" href="#em-destaque">em destaque</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#avaliacoes" tabindex="-1" aria-disabled="true">avaliações</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#entrevistas-makingof" tabindex="-1" aria-disabled="true">entrevistas & makingof</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#novidades" tabindex="-1" aria-disabled="true">novidades</a>
-            </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" id="search-input" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="search-button">Search</button>
           </form>
         </div>
       </nav>
     </header>
+    <main  class="container">
+      <h1>Resultados de pesquisa</h1>
+      <div class="row" id="resultados-pesquisa">
+        <div class="col-lg-12">
+          Nada aqui por enquanto.
+        </div>
+      </div>
+    </main>
     <section id="populares" class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
@@ -93,204 +92,6 @@
         <div class="col-lg-8 col-sm-0"></div>
         <div class="col-lg-4 col-sm-12">
           <button type="button" class="btn btn-primary btn-block">+ Carregar mais itens</button>
-        </div>
-      </div>
-    </section>
-    <section id="avaliacoes" class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h1>Avaliações</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12 col-lg-4">
-          <div class="media">
-            <img class="mr-3" src="img/avatar.png" alt="Profile Name">
-            <div class="media-body">
-              <div class="row">
-                <div class="col-sm-12">
-                  <h5 class="mt-0">Profile Name</h5>
-                  <p>
-                    <strong>Avaliação:</strong>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                    scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                    vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                    vulputate fringilla. Donec lacinia congue felis in faucibus.
-                  </p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                      60%
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 text-right">
-                  01/12/2020
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-lg-4">
-          <div class="media">
-            <img class="mr-3" src="img/avatar.png" alt="Profile Name">
-            <div class="media-body">
-              <div class="row">
-                <div class="col-sm-12">
-                  <h5 class="mt-0">Profile Name</h5>
-                  <p>
-                    <strong>Avaliação:</strong>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                    scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                    vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                    vulputate fringilla. Donec lacinia congue felis in faucibus.
-                  </p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                      60%
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 text-right">
-                  01/12/2020
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-lg-4">
-          <div class="media">
-            <img class="mr-3" src="img/avatar.png" alt="Profile Name">
-            <div class="media-body">
-              <div class="row">
-                <div class="col-sm-12">
-                  <h5 class="mt-0">Profile Name</h5>
-                  <p>
-                    <strong>Avaliação:</strong>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                    scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                    vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                    vulputate fringilla. Donec lacinia congue felis in faucibus.
-                  </p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                      60%
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 text-right">
-                  01/12/2020
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="entrevistas-makingof" class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h1>Entrevistas & Making of</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12 col-lg-4">
-          <div class="row">
-            <div class="col-sm-12">
-              <iframe width="100%" src="https://www.youtube.com/embed/QYttVzoTgHw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <h6>
-                <strong>Filme:</strong> Jornal Não Pode Rir
-              </h6>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <strong>Diretor:</strong> Marcos Castro
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <strong>Nome do Roteirista:</strong> Marcos Castro
-            </div>
-            <div class="col-sm-6">
-              <strong>Estreia:</strong> 2020
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-lg-4">
-          <div class="row">
-            <div class="col-sm-12">
-              <iframe width="100%" src="https://www.youtube.com/embed/QYttVzoTgHw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <h6>
-                <strong>Filme:</strong> Jornal Não Pode Rir
-              </h6>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <strong>Diretor:</strong> Marcos Castro
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <strong>Nome do Roteirista:</strong> Marcos Castro
-            </div>
-            <div class="col-sm-6">
-              <strong>Estreia:</strong> 2020
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-lg-4">
-          <div class="row">
-            <div class="col-sm-12">
-              <iframe width="100%" src="https://www.youtube.com/embed/QYttVzoTgHw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <h6>
-                <strong>Filme:</strong> Jornal Não Pode Rir
-              </h6>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <strong>Diretor:</strong> Marcos Castro
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <strong>Nome do Roteirista:</strong> Marcos Castro
-            </div>
-            <div class="col-sm-6">
-              <strong>Estreia:</strong> 2020
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-8 col-sm-0"></div>
-        <div class="col-lg-4 col-sm-12">
-          <button type="button" class="btn btn-primary btn-block">+ Carregar mais filmes</button>
         </div>
       </div>
     </section>
