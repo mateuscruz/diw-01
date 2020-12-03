@@ -1,6 +1,8 @@
-.carousel-lancamentos {
+.carousel-populares {
   background-color: rgba(0, 0, 0, 0.08);
   border-radius: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 footer {
