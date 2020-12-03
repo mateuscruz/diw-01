@@ -93,7 +93,7 @@ const buildCarouselItem = (data, active) => {
                   </div>
                 </div>
                 <div class="col-lg-12">
-                  <a href="${MOVIE_BASE_URL}/${data.id}?language=${LANG}">See more</a>
+                  <a href="${MOVIE_BASE_URL}/${data.id}?language=${LANG}" target="blank">See more</a>
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ const buildCarouselItem = (data, active) => {
 
 const getRandomPage = () => Math.floor(Math.random() * 10) % 5 + 1;
 
-const buildCarouselErrorPage = () => {
+const buildErrorPage = (id) => {
   const html = `
     <div class="container'>
       <div class="row">
@@ -118,7 +118,7 @@ const buildCarouselErrorPage = () => {
       </div>
     </div>
   `
-  $('#carouselPopulares').html(html);
+  $(id).html(html);
 };
 
 const fetchPopularMovies = () => {
@@ -134,7 +134,7 @@ const fetchPopularMovies = () => {
         page: getRandomPage()
       },
       success: (data) => buildCarousel(data.results),
-      error: buildCarouselErrorPage
+      error: () => buildErrorPage('#carouselPopulares')
     }
   );
 }
@@ -150,7 +150,7 @@ const buildSearchItem = (result) => {
         <h5 class="card-title">${title}</h5>
         <p class="card-text">${overview}</p>
         <p class="card-text"><strong>Lançamento:</strong>${releaseDateFor(result.release_date)}</p>
-        <a href="${MOVIE_BASE_URL}/${result.id}?language=${LANG}" class="btn btn-primary">See more</a>
+        <a href="${MOVIE_BASE_URL}/${result.id}?language=${LANG}" class="btn btn-primary" target="blank">See more</a>
       </div>
     </div>
   `;
@@ -179,6 +179,13 @@ const buildSearchResults = (results) => {
 }
 
 const searchMovie = (query) => {
+  $('#resultados-pesquisa').html(
+    `
+    <div class="col-lg-12">
+      Pesquisando....
+    </div>
+    `
+  );
   const endpoint = `${API_URL}/search/movie`;
 
   $.ajax(
@@ -191,10 +198,48 @@ const searchMovie = (query) => {
         query: query
       },
       success: (data) => buildSearchResults(data.results),
-      error: buildCarouselErrorPage
+      error: () => buildErrorPage('#resultados-pesquisa')
     }
   );
 }
+
+const buildTrendingItem = (result) => {
+  const body = `
+    <div class="col-lg-3 col-sm-12">
+      <a href="${MOVIE_BASE_URL}/${result.id}" target="blank">
+        <img src="${buildPosterPath(result.poster_path)}" class="img-fluid img-thumbnail" alt="${result.title}">
+      </div>
+    </div>
+  `;
+
+  return body;
+};
+
+const buildTrendingResults = (results) => {
+  let trendingItems = '';
+
+  for(let i = 0; i < results.length; i++) {
+    trendingItems += buildTrendingItem(results[i]);
+  }
+
+  $('#em-destaque').html(trendingItems);
+};
+
+const fetchTrending = () => {
+  const endpoint = `${API_URL}/trending/movie/day`;
+
+  $.ajax(
+    endpoint,
+    {
+      data: {
+        api_key: THE_MOVIE_DB_API_KEY,
+        language: LANG,
+      },
+      success: (data) => buildTrendingResults(data.results),
+      error: () => buildErrorPage('#em-destaque')
+    }
+  );
+};
 
 const runSearch = (event) => {
   event.preventDefault();
@@ -210,6 +255,7 @@ const runSearch = (event) => {
 
 $(document).ready(() => {
   fetchPopularMovies();
+  fetchTrending();
   $('#search-button').click(runSearch);
   $('#search-input').change(runSearch);
 });

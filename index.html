@@ -13,14 +13,13 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#populares">populares <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#session-populares">populares <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#em-destaque">em destaque</a>
+              <a class="nav-link" href="#session-em-destaque">em destaque</a>
             </li>
           </ul>
           <div class="form-inline my-2 my-lg-0">
@@ -38,7 +37,7 @@
         </div>
       </div>
     </main>
-    <section id="populares" class="container-fluid">
+    <section id="session-populares" class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
           <h1 class="text-center">populares</h1>
@@ -53,28 +52,13 @@
       </div>
     </section>
     <br>
-    <section id="em-destaque" class="container">
+    <section class="container" id="session-em-destaque">
       <div class="row">
-        <div class="col-lg-6 col-sm-12">
+        <div class="col-sm-12">
           <h1>Em destaque</h1>
         </div>
-        <div class="col-lg-6 col-sm-12">
-          <form>
-            <div class="form-group row">
-              <label for="category" class="col-lg-2 col-sm-6">Categoria</label>
-              <div class="col-lg-10 col-sm-6">
-                <select class="form-control" id="category">
-                  <option>Todos</option>
-                  <option>Aventura</option>
-                  <option>Romance</option>
-                  <option>Comédia</option>
-                </select>
-              </div>
-            </div>
-          </form>
-        </div>
       </div>
-      <div class="row">
+      <div class="row" id="em-destaque">
         <div class="col-lg-3 col-sm-12">
           <img src="img/jumanji.jpg" class="img-fluid img-thumbnail" alt="Jumanji">
         </div>
@@ -86,12 +70,6 @@
         </div>
         <div class="col-lg-3 col-sm-12">
           <img src="img/roald-dahls-the-witches.jpg" class="img-fluid img-thumbnail" alt="Roald Dahl's The Witches">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-8 col-sm-0"></div>
-        <div class="col-lg-4 col-sm-12">
-          <button type="button" class="btn btn-primary btn-block">+ Carregar mais itens</button>
         </div>
       </div>
     </section>
